@@ -1,24 +1,27 @@
-'use strict'
+'use strict';
 
-const mapValues = require('modify-values')
-const { Qtum } = require('qtumjs')
+const mapValues = require('modify-values');
+const { Qtum } = require('qtumjs');
 
-const chainAliases = require('./aliases.json')
-const contractsDefinition = require('./contracts.json')
+const chainAliases = require('./aliases.json');
+const contractsDefinition = require('./contracts.json');
 
 // Create an object containing all chains, its contracts and static data.
 const allContracts = mapValues(chainAliases, function (chainAlias) {
-  const definitions = contractsDefinition[chainAlias]
+  const definitions = contractsDefinition[chainAlias];
+  // console.log('contract definitions: ', definitions, '   chainAlias: ', chainAlias, ' .  contractsDefinition: ', contractsDefinition);
   return mapValues(
     definitions.contracts,
-    ({ address, birthblock, version }, name) =>
-      ({
+    ({ address, birthblock, version }, name) => {
+      // console.log('address: ', address, ' . birthblock: ', birthblock, ' . version: ', version, ' . name: ', name, ' . contracts: ', definitions.contracts);
+      return ({
         abi: require(`./abis/${version || definitions.version}/${name}.json`),
         address,
         birthblock: birthblock || definitions.birthblock
       })
-  )
-})
+    }
+  );
+});
 
 /**
  * Create a contract using either web3@0.2x or web3@1.0.0
@@ -30,23 +33,23 @@ const allContracts = mapValues(chainAliases, function (chainAlias) {
  */
 
 const createContract = function (web3, abi, address, qtumrpc) {
-  let contract
+  let contract;
   if (qtumrpc) {
-    const contractsRepo = { contracts: { '': { abi, address } } }
-    const qtum = new Qtum(qtumrpc, contractsRepo)
-    contract = qtum.contract('')
+    const contractsRepo = { contracts: { '': { abi, address } } };
+    const qtum = new Qtum(qtumrpc, contractsRepo);
+    contract = qtum.contract('');
   } else {
     contract = typeof web3.eth.Contract === 'function'
       ? new web3.eth.Contract(abi, address)
-      : web3.eth.contract(abi).at(address)
+      : web3.eth.contract(abi).at(address);
   }
-  return contract
+  return contract;
 }
 
 /** Class representing a contracts set. */
-class MetronomeContracts {
+class LumerinContracts {
   /**
-   * Create a Metronome contracts set.
+   * Create a Lumerin contracts set.
    *
    * The contract set contains instances of all the contracts at the proper
    * addresses depending on the target chain.
@@ -57,22 +60,23 @@ class MetronomeContracts {
    */
   constructor (web3, chain = 'mainnet', qtumrpc) {
     if (!web3 || !web3.eth) {
-      throw new Error('Invalid web3 or qtumrpc provided')
+      throw new Error('Invalid web3 or qtumrpc provided');
     }
 
-    const contracts = allContracts[chainAliases[chain]]
+    // const contracts = allContracts[chainAliases[chain]];
+    const contracts = allContracts[chain];
 
     if (!contracts) {
-      throw new Error('Unknown chain')
+      throw new Error('Unknown chain');
     }
 
     Object.assign(this, mapValues(contracts, ({ abi, address }) =>
       createContract(web3, abi, address, qtumrpc)
-    ))
+    ));
   }
 }
 
-// Add contract definitions to the MetronomeContracts class for convenience
-Object.assign(MetronomeContracts, allContracts)
+// Add contract definitions to the LumerinContracts class for convenience
+Object.assign(LumerinContracts, allContracts);
 
-module.exports = MetronomeContracts
+module.exports = LumerinContracts;

@@ -1,27 +1,31 @@
 {
-  "name": "metronome-contracts",
-  "version": "2.5.0",
-  "description": "Web3 Contracts for Metronome Token",
+  "name": "lumerin-contracts",
+  "version": "0.1.0",
+  "description": "Web3 Contracts for Lumerin Token",
   "keywords": [
     "js",
     "node",
     "browser",
     "token",
-    "metronome"
+    "lumerin"
   ],
-  "homepage": "https://github.com/autonomoussoftware/metronome-contracts-js#readme",
+  "homepage": "https://github.com/Lumerin-protocol/lumerin-contracts-js#readme",
   "bugs": {
-    "url": "https://github.com/autonomoussoftware/metronome-contracts-js/issues"
+    "url": "https://github.com/Lumerin-protocol/lumerin-contracts-js/issues"
   },
   "license": "MIT",
-  "author": "Ignacio Anaya <ignacio@bloq.com>",
+  "author": {
+    "name": "Kodee McIntosh",
+    "email": "kodee@lumerin.io",
+    "url": "https://lumerin.io"
+  },
   "files": [
     "dist",
     "lib",
     "src"
   ],
   "main": "./src/index.js",
-  "repository": "autonomoussoftware/metronome-contracts-js",
+  "repository": "https://github.com/Lumerin-protocol/lumerin-contracts-js",
   "scripts": {
     "build:dev": "webpack --progress --colors",
     "build:prod": "cross-env NODE_ENV=production webpack --progress --colors -p",
@@ -67,7 +71,7 @@
   },
   "preferGlobal": false,
   "private": false,
-  "browser": "./dist/metronome-contracts.min.js",
+  "browser": "./dist/lumerin-contracts.min.js",
   "jest": {
     "collectCoverage": true,
     "collectCoverageFrom": [

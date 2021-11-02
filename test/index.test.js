@@ -4,7 +4,7 @@ const Web3 = require('web3')
 const web3 = new Web3('http://localhost:8545')
 const qtumrpc = 'http://user:pass@localhost:3889'
 
-const MetronomeContracts = require('../src')
+const LumerinContracts = require('../src')
 
 const ROPSTEN = 'ropsten'
 const QTUM = 'qtumTestnet'
@@ -18,7 +18,7 @@ const contracts = {
     AutonomousConverter: {
       address: '0x686e5ac50D9236A9b7406791256e47feDDB26AbA'
     },
-    METToken: {
+    LMRToken: {
       address: '0xa3d58c4E56fedCae3a7c43A725aeE9A71F0ece4e'
     }
   },
@@ -30,7 +30,7 @@ const contracts = {
     AutonomousConverter: {
       address: '0x638E84db864AA345266e1AEE13873b860aFe82e7'
     },
-    METToken: {
+    LMRToken: {
       address: '0xF3e9a687Fdf24112745D4d7dEe150BA87A07ecc3'
     }
   },
@@ -41,7 +41,7 @@ const contracts = {
     AutonomousConverter: {
       address: '33f2e61f4815d567fb30d26f6615cc5a9e3019c1'
     },
-    METToken: {
+    LMRToken: {
       address: '1380c108760e38cb6202337a0a2de372887d25a3'
     },
     Proposals: {
@@ -57,72 +57,72 @@ const contracts = {
 }
 
 test('initializes contracts with default chain', function () {
-  const metronome = new MetronomeContracts(web3)
+  const lumerin = new LumerinContracts(web3)
 
-  expect(metronome.METToken)
+  expect(lumerin.LMRToken)
     .toBeDefined()
-  expect(metronome.Auctions)
+  expect(lumerin.Auctions)
     .toBeDefined()
-  expect(metronome.AutonomousConverter)
+  expect(lumerin.AutonomousConverter)
     .toBeDefined()
 })
 
 test('initializes contracts for specific', function () {
-  const metronome = new MetronomeContracts(web3, ROPSTEN)
+  const lumerin = new LumerinContracts(web3, ROPSTEN)
 
-  expect(metronome.METToken)
+  expect(lumerin.LMRToken)
     .toBeDefined()
-  expect(metronome.Auctions)
+  expect(lumerin.Auctions)
     .toBeDefined()
-  expect(metronome.AutonomousConverter)
+  expect(lumerin.AutonomousConverter)
     .toBeDefined()
 })
 
 test('initializes contracts for qtum', function () {
-  const metronome = new MetronomeContracts(web3, QTUM, qtumrpc)
+  const lumerin = new LumerinContracts(web3, QTUM, qtumrpc)
 
-  expect(metronome.METToken)
+  expect(lumerin.LMRToken)
     .toBeDefined()
-  expect(metronome.Auctions)
+  expect(lumerin.Auctions)
     .toBeDefined()
-  expect(metronome.AutonomousConverter)
+  expect(lumerin.AutonomousConverter)
     .toBeDefined()
 })
 
 test('initializes contracts and get the addresses on qtum', function () {
-  const metronome = new MetronomeContracts(web3, QTUM, qtumrpc)
-  expect(metronome.METToken.info.address.toLowerCase())
-    .toBe(contracts[QTUM].METToken.address.toLowerCase())
-  expect(metronome.Auctions.info.address.toLowerCase())
+  const lumerin = new LumerinContracts(web3, QTUM, qtumrpc)
+  expect(lumerin.LMRToken.info.address.toLowerCase())
+    .toBe(contracts[QTUM].LMRToken.address.toLowerCase())
+  expect(lumerin.Auctions.info.address.toLowerCase())
     .toBe(contracts[QTUM].Auctions.address.toLowerCase())
-  expect(metronome.AutonomousConverter.info.address.toLowerCase())
+  expect(lumerin.AutonomousConverter.info.address.toLowerCase())
     .toBe(contracts[QTUM].AutonomousConverter.address.toLowerCase())
 })
 
 test('initializes contracts and get the addresses on Ropsten', function () {
-  const metronome = new MetronomeContracts(web3, ROPSTEN)
-  expect(metronome.METToken.options.address.toLowerCase())
-    .toBe(contracts[ROPSTEN].METToken.address.toLowerCase())
-  expect(metronome.Auctions.options.address.toLowerCase())
+  const lumerin = new LumerinContracts(web3, ROPSTEN)
+  expect(lumerin.LMRToken.options.address.toLowerCase())
+    .toBe(contracts[ROPSTEN].LMRToken.address.toLowerCase())
+  expect(lumerin.Auctions.options.address.toLowerCase())
     .toBe(contracts[ROPSTEN].Auctions.address.toLowerCase())
-  expect(metronome.AutonomousConverter.options.address.toLowerCase())
+  expect(lumerin.AutonomousConverter.options.address.toLowerCase())
     .toBe(contracts[ROPSTEN].AutonomousConverter.address.toLowerCase())
 })
 
 test('initializes contracts and check some methods', function () {
-  const metronome = new MetronomeContracts(web3, ROPSTEN)
+  const lumerin = new LumerinContracts(web3, ROPSTEN)
 
-  expect(typeof metronome.METToken.methods.transfer)
+  expect(typeof lumerin.LMRToken.methods.transfer)
     .toBe('function')
-  expect(typeof metronome.Auctions.methods.heartbeat)
+  expect(typeof lumerin.Auctions.methods.heartbeat)
     .toBe('function')
-  expect(typeof metronome.AutonomousConverter.methods.convertEthToMet)
+  expect(typeof lumerin.AutonomousConverter.methods.convertEthToMet)
     .toBe('function')
 })
 
 test('initializes contracts with invalid chain and throw error', function () {
   try {
-    new MetronomeContracts(web3, 'fakenet') // eslint-disable-line no-new
+    new LumerinContracts(web3, 'fakenet') // eslint-disable-line no-new
   } catch (err) {
     expect(err.message)
       .toBe('Unknown chain')
@@ -130,5 +130,5 @@ test('initializes contracts with invalid chain and throw error', function () {
 })
 
 test('check static properties as addresses and birthblocks', function () {
-  expect(Object.assign({}, MetronomeContracts)).toMatchObject(contracts)
+  expect(Object.assign({}, LumerinContracts)).toMatchObject(contracts)
 })

@@ -1,128 +1,68 @@
 {
   "classic": {
-    "birthblock": 8285377,
     "contracts": {
-      "Auctions": {
-        "address": "0xF5269Caa54F1f776dD996Db35992D599e14d8a3B"
+      "Lumerin": {
+        "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24"
       },
-      "AutonomousConverter": {
-        "address": "0x567EEBB6397cC8345e5A7eAE288994bf45FDF85B"
-      },
-      "METToken": {
-        "address": "0xA4d3A7b00056Cc5D8206b3b2983bfe0C107D90da"
-      },
-      "Proposals": {
-        "address": "0x62c42c2Ee48E6034B0556ebCCF58A2E0eEB8E538"
-      },
-      "TokenPorter": {
-        "address": "0x17B418cBE5c4F6DD75BdCA7F8BFBB1424062D9ef"
-      },
-      "Validator": {
-        "address": "0x7f37407F868E6A88f9838B57B00FEB04f23E7F9F"
+      "Webfacing": {
+        "address": "0x2612Af3A521c2df9EAF28422Ca335b04AdF3ac66"
       }
     },
-    "version": "3a9a045"
+    "version": "1337"
   },
   "mainnet": {
-    "birthblock": 5659894,
     "contracts": {
-      "Auctions": {
-        "address": "0x9d9BcDd249E439AAaB545F59a33812E39A8e3072"
+      "Lumerin": {
+        "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24"
       },
-      "AutonomousConverter": {
-        "address": "0x686e5ac50D9236A9b7406791256e47feDDB26AbA"
-      },
-      "METToken": {
-        "address": "0xa3d58c4E56fedCae3a7c43A725aeE9A71F0ece4e"
-      },
-      "Proposals": {
-        "address": "0x760a0A933f9597fbC3B4DB86Ef92D61c956269E4",
-        "version": "821aeaf"
-      },
-      "TokenPorter": {
-        "address": "0xc0CEF6cF59e56A9427CEF967f8dFb7BDe06173B3",
-        "version": "821aeaf"
-      },
-      "Validator": {
-        "address": "0xE804EBEfF801a63De6e746c24cEB41A9864Eb1C1",
-        "version": "821aeaf"
+      "Webfacing": {
+        "address": "0x2612Af3A521c2df9EAF28422Ca335b04AdF3ac66"
       }
     },
-    "version": "35a6cd3"
+    "version": "1337"
   },
   "mordor": {
-    "birthblock": 35554,
     "contracts": {
-      "Auctions": {
-        "address": "0x91D4f7097eA3A5cD3fDC9FC863dF9A0d6Ae64738"
+      "Lumerin": {
+        "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24"
       },
-      "AutonomousConverter": {
-        "address": "0x6ffAEBfd319cB66743acba078e173eD27B33a2a3"
-      },
-      "METToken": {
-        "address": "0x2faE8aF94CdC68452042CCFc2AbF25a9120Fdb2E"
-      },
-      "Proposals": {
-        "address": "0xb4C458a0389C7DFC325B5d97143b09D03a958Cf1"
-      },
-      "TokenPorter": {
-        "address": "0x62187b4AA3BDA5bF7580fa4aa89659f018bb958f"
-      },
-      "Validator": {
-        "address": "0x444E8fafB172cF0Df4Be1B4c20e24a48bd4a0Ae0"
+      "Webfacing": {
+        "address": "0x2612Af3A521c2df9EAF28422Ca335b04AdF3ac66"
       }
     },
-    "version": "b21557f"
+    "version": "1337"
   },
   "ropsten": {
-    "birthblock": 3399250,
     "contracts": {
-      "Auctions": {
-        "address": "0x767182C6ef62398993099e5542Ab43c2456A8abA"
+      "Lumerin": {
+        "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24"
       },
-      "AutonomousConverter": {
-        "address": "0x638E84db864AA345266e1AEE13873b860aFe82e7"
-      },
-      "METToken": {
-        "address": "0xF3e9a687Fdf24112745D4d7dEe150BA87A07ecc3"
-      },
-      "Proposals": {
-        "address": "0xdC48aBe19B9e41d9A9B6A8B1E5793FeEf91faB6e",
-        "version": "7e8f2e3"
-      },
-      "TokenPorter": {
-        "address": "0x21c8CeB0c6f6c5357E9D6082B38425e46fdc6177",
-        "version": "7e8f2e3"
-      },
-      "Validator": {
-        "address": "0xe0CB1167725CDb0e77c0362EAf32Ae198Ebc4902",
-        "version": "7e8f2e3"
+      "Webfacing": {
+        "address": "0x2612Af3A521c2df9EAF28422Ca335b04AdF3ac66"
       }
     },
-    "version": "35a6cd3"
+    "version": "1337"
+  },
+  "lmrTestnet": {
+    "contracts": {
+      "Lumerin": {
+        "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24"
+      },
+      "Webfacing": {
+        "address": "0x2612Af3A521c2df9EAF28422Ca335b04AdF3ac66"
+      }
+    },
+    "version": "1337"
   },
   "qtumTestnet": {
-    "birthblock": 476263,
-    "version": "f172e77",
     "contracts": {
-      "Auctions": {
-        "address": "7908a62c8d32f555d97359084462c4ce697ced9d"
+      "Lumerin": {
+        "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24"
       },
-      "AutonomousConverter": {
-        "address": "33f2e61f4815d567fb30d26f6615cc5a9e3019c1"
-      },
-      "METToken": {
-        "address": "1380c108760e38cb6202337a0a2de372887d25a3"
-      },
-      "Proposals": {
-        "address": "00e464322295eb181f138568d8164dfa5e0f39b1"
-      },
-      "TokenPorter": {
-        "address": "a4254153771a89c547954cc7f2ff1743caf5fad7"
-      },
-      "Validator": {
-        "address": "04b79b393f5bfe3801c42ca9a9239b90e313f3d3"
+      "Webfacing": {
+        "address": "0x2612Af3A521c2df9EAF28422Ca335b04AdF3ac66"
       }
-    }
+    },
+    "version": "1337"
   }
 }
