@@ -35,7 +35,7 @@
     "lint:fix": "npm run lint -- --fix",
     "lint": "eslint --cache .",
     "precommit": "npm run lint",
-    "prepublishOnly": "npm run build && npm run precommit && npm run prepush && tag-matches",
+    "prepublishOnly": "npm run build && npm run precommit && npm run prepush",
     "prepush": "npm run check",
     "test": "jest"
   },
@@ -47,7 +47,6 @@
     "@babel/preset-env": "^7.3.4",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.5",
-    "check-tag-matches": "^1.0.0",
     "cross-env": "^5.2.0",
     "dependency-check": "^3.3.0",
     "eslint": "^5.16.0",
