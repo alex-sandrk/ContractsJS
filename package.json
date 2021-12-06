@@ -1,5 +1,5 @@
 {
-  "name": "lumerin-contracts",
+  "name": "@lumerin/contracts",
   "version": "1.0.0-beta",
   "description": "Web3 Contracts for Lumerin Token",
   "keywords": [

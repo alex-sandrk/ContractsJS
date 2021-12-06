@@ -4,7 +4,7 @@
       "Lumerin": {
         "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24"
       },
-      "Webfacing": {
+      "WebFacing": {
         "address": "0x2612Af3A521c2df9EAF28422Ca335b04AdF3ac66"
       }
     },
@@ -15,7 +15,7 @@
       "Lumerin": {
         "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24"
       },
-      "Webfacing": {
+      "WebFacing": {
         "address": "0x2612Af3A521c2df9EAF28422Ca335b04AdF3ac66"
       }
     },
@@ -26,7 +26,7 @@
       "Lumerin": {
         "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24"
       },
-      "Webfacing": {
+      "WebFacing": {
         "address": "0x2612Af3A521c2df9EAF28422Ca335b04AdF3ac66"
       }
     },
@@ -35,20 +35,26 @@
   "ropsten": {
     "contracts": {
       "Lumerin": {
-        "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24"
+        "address": "0x84E00a18a36dFa31560aC216da1A9bef2164647D"
       },
-      "Webfacing": {
-        "address": "0x2612Af3A521c2df9EAF28422Ca335b04AdF3ac66"
+      "WebFacing": {
+        "address": "0x2dF98c766e83933A03E33334d75BD22fC205D305"
+      },
+      "Ledger": {
+        "address": "0xc80a217683a1114566adcc0541E6b88Ec3e40D62"
+      },
+      "CloneFactory": {
+        "address": "0xC4Ac2b9aAdA4cc410330F9CD673619dd97C72dfF"
       }
     },
-    "version": "1337"
+    "version": "3"
   },
   "lmrTestnet": {
     "contracts": {
       "Lumerin": {
         "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24"
       },
-      "Webfacing": {
+      "WebFacing": {
         "address": "0x2612Af3A521c2df9EAF28422Ca335b04AdF3ac66"
       }
     },
@@ -59,7 +65,7 @@
       "Lumerin": {
         "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24"
       },
-      "Webfacing": {
+      "WebFacing": {
         "address": "0x2612Af3A521c2df9EAF28422Ca335b04AdF3ac66"
       }
     },
