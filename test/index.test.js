@@ -1,13 +1,13 @@
-'use strict'
+'use strict';
 
-const Web3 = require('web3')
-const web3 = new Web3('http://localhost:8545')
-const qtumrpc = 'http://user:pass@localhost:3889'
+const Web3 = require('web3');
+const web3 = new Web3('http://localhost:8545');
+const qtumrpc = 'http://user:pass@localhost:3889';
 
-const LumerinContracts = require('../src')
+const LumerinContracts = require('../src');
 
-const ROPSTEN = 'ropsten'
-const QTUM = 'qtumTestnet'
+const ROPSTEN = 'ropsten';
+const QTUM = 'qtumTestnet';
 
 const contracts = {
   mainnet: {
@@ -54,81 +54,59 @@ const contracts = {
       address: '04b79b393f5bfe3801c42ca9a9239b90e313f3d3'
     }
   }
-}
+};
 
 test('initializes contracts with default chain', function () {
-  const lumerin = new LumerinContracts(web3)
+  const lumerin = new LumerinContracts(web3);
 
   expect(lumerin.LMRToken)
-    .toBeDefined()
-  expect(lumerin.Auctions)
-    .toBeDefined()
-  expect(lumerin.AutonomousConverter)
-    .toBeDefined()
-})
+    .toBeDefined();
+});
 
 test('initializes contracts for specific', function () {
-  const lumerin = new LumerinContracts(web3, ROPSTEN)
+  const lumerin = new LumerinContracts(web3, ROPSTEN);
 
   expect(lumerin.LMRToken)
-    .toBeDefined()
-  expect(lumerin.Auctions)
-    .toBeDefined()
-  expect(lumerin.AutonomousConverter)
-    .toBeDefined()
-})
+    .toBeDefined();
+});
 
 test('initializes contracts for qtum', function () {
-  const lumerin = new LumerinContracts(web3, QTUM, qtumrpc)
+  const lumerin = new LumerinContracts(web3, QTUM, qtumrpc);
 
   expect(lumerin.LMRToken)
-    .toBeDefined()
-  expect(lumerin.Auctions)
-    .toBeDefined()
-  expect(lumerin.AutonomousConverter)
-    .toBeDefined()
-})
+    .toBeDefined();
+});
 
 test('initializes contracts and get the addresses on qtum', function () {
-  const lumerin = new LumerinContracts(web3, QTUM, qtumrpc)
+  const lumerin = new LumerinContracts(web3, QTUM, qtumrpc);
+
   expect(lumerin.LMRToken.info.address.toLowerCase())
-    .toBe(contracts[QTUM].LMRToken.address.toLowerCase())
-  expect(lumerin.Auctions.info.address.toLowerCase())
-    .toBe(contracts[QTUM].Auctions.address.toLowerCase())
-  expect(lumerin.AutonomousConverter.info.address.toLowerCase())
-    .toBe(contracts[QTUM].AutonomousConverter.address.toLowerCase())
-})
+    .toBe(contracts[QTUM].LMRToken.address.toLowerCase());
+});
 
 test('initializes contracts and get the addresses on Ropsten', function () {
-  const lumerin = new LumerinContracts(web3, ROPSTEN)
+  const lumerin = new LumerinContracts(web3, ROPSTEN);
+
   expect(lumerin.LMRToken.options.address.toLowerCase())
-    .toBe(contracts[ROPSTEN].LMRToken.address.toLowerCase())
-  expect(lumerin.Auctions.options.address.toLowerCase())
-    .toBe(contracts[ROPSTEN].Auctions.address.toLowerCase())
-  expect(lumerin.AutonomousConverter.options.address.toLowerCase())
-    .toBe(contracts[ROPSTEN].AutonomousConverter.address.toLowerCase())
-})
+    .toBe(contracts[ROPSTEN].LMRToken.address.toLowerCase());
+});
 
 test('initializes contracts and check some methods', function () {
-  const lumerin = new LumerinContracts(web3, ROPSTEN)
+  const lumerin = new LumerinContracts(web3, ROPSTEN);
 
   expect(typeof lumerin.LMRToken.methods.transfer)
-    .toBe('function')
-  expect(typeof lumerin.Auctions.methods.heartbeat)
-    .toBe('function')
-  expect(typeof lumerin.AutonomousConverter.methods.convertEthToMet)
-    .toBe('function')
-})
+    .toBe('function');
+});
 
 test('initializes contracts with invalid chain and throw error', function () {
   try {
-    new LumerinContracts(web3, 'fakenet') // eslint-disable-line no-new
+    new LumerinContracts(web3, 'fakenet'); // eslint-disable-line no-new
   } catch (err) {
     expect(err.message)
-      .toBe('Unknown chain')
+      .toBe('Unknown chain');
   }
-})
+});
 
 test('check static properties as addresses and birthblocks', function () {
-  expect(Object.assign({}, LumerinContracts)).toMatchObject(contracts)
-})
+  expect(Object.assign({}, LumerinContracts)).toMatchObject(contracts);
+});

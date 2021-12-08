@@ -1,10 +1,10 @@
-'use strict'
+'use strict';
 
-const path = require('path')
+const path = require('path');
 
-const isProd = process.env.NODE_ENV === 'production'
-const library = 'lumerin-contracts'
-const outputFile = isProd ? `${library}.min.js` : `${library}.js`
+const isProd = process.env.NODE_ENV === 'production';
+const library = '@lumerin/contracts';
+const outputFile = isProd ? `${library}.min.js` : `${library}.js`;
 
 module.exports = {
   target: 'web',
@@ -43,4 +43,4 @@ module.exports = {
   },
 
   devtool: isProd ? '#eval-source-map' : false
-}
+};

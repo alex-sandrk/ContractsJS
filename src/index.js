@@ -9,17 +9,13 @@ const contractsDefinition = require('./contracts.json');
 // Create an object containing all chains, its contracts and static data.
 const allContracts = mapValues(chainAliases, function (chainAlias) {
   const definitions = contractsDefinition[chainAlias];
-  // console.log('contract definitions: ', definitions, '   chainAlias: ', chainAlias, ' .  contractsDefinition: ', contractsDefinition);
   return mapValues(
     definitions.contracts,
-    ({ address, birthblock, version }, name) => {
-      // console.log('address: ', address, ' . birthblock: ', birthblock, ' . version: ', version, ' . name: ', name, ' . contracts: ', definitions.contracts);
-      return ({
-        abi: require(`./abis/${version || definitions.version}/${name}.json`),
-        address,
-        birthblock: birthblock || definitions.birthblock
-      })
-    }
+    ({ address, birthblock, version }, name) => ({
+      abi: require(`./abis/${version || definitions.version}/${name}.json`),
+      address,
+      birthblock: birthblock || definitions.birthblock
+    })
   );
 });
 
@@ -44,7 +40,7 @@ const createContract = function (web3, abi, address, qtumrpc) {
       : web3.eth.contract(abi).at(address);
   }
   return contract;
-}
+};
 
 /** Class representing a contracts set. */
 class LumerinContracts {
