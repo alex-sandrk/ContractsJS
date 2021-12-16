@@ -1,6 +1,6 @@
 {
   "name": "@lumerin/contracts",
-  "version": "1.0.3-beta",
+  "version": "1.0.5-beta",
   "description": "Web3 Contracts for Lumerin Token",
   "keywords": [
     "js",
@@ -9,9 +9,9 @@
     "token",
     "lumerin"
   ],
-  "homepage": "https://github.com/Lumerin-protocol/lumerin-contracts-js#readme",
+  "homepage": "https://github.com/Lumerin-protocol/ContractsJS#readme",
   "bugs": {
-    "url": "https://github.com/Lumerin-protocol/lumerin-contracts-js/issues"
+    "url": "https://github.com/Lumerin-protocol/ContractsJS/issues"
   },
   "license": "MIT",
   "author": {
