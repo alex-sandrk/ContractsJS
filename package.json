@@ -25,7 +25,7 @@
     "src"
   ],
   "main": "./src/index.js",
-  "repository": "https://github.com/Lumerin-protocol/lumerin-contracts-js",
+  "repository": "https://github.com/Lumerin-protocol/ContractsJS",
   "scripts": {
     "build:dev": "webpack --progress --colors",
     "build:prod": "cross-env NODE_ENV=production webpack --progress --colors -p",
