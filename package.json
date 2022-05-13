@@ -1,6 +1,6 @@
 {
   "name": "@lumerin/contracts",
-  "version": "1.0.5-beta",
+  "version": "1.0.7-beta",
   "description": "Web3 Contracts for Lumerin Token",
   "keywords": [
     "js",
@@ -34,6 +34,7 @@
     "check": "dependency-check . && dependency-check . --unused --no-dev",
     "lint:fix": "npm run lint -- --fix",
     "lint": "eslint --cache .",
+    "precommit": "npm run lint",
     "prepublishOnly": "npm run build && npm run precommit && npm run prepush",
     "prepush": "npm run check",
     "test": "jest"

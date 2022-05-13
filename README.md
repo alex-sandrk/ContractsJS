@@ -1,5 +1,5 @@
 <h1>
-  <img src="./logo.png" alt="Lumerin Contracts JS" width="20%">
+  <img src="./logo.svg" alt="Lumerin Contracts JS" width="20%">
 </h1>
 
 🔌  [Web3](https://github.com/ethereum/web3.js) Contracts for [Lumerin Token](http://lumerin.io) ready to be used.

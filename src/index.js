@@ -10,13 +10,12 @@ const allContracts = mapValues(chainAliases, function (chainAlias) {
   const definitions = contractsDefinition[chainAlias];
   return mapValues(
     definitions.contracts,
-    ({ address, birthblock, version }, name) => {
-      return {
-        abi: require(`./abis/${version || definitions.version}/${name}.json`).abi,
-        address,
-        birthblock: birthblock || definitions.birthblock
-      };
-    }
+    ({ address, birthblock, version }, name) => ({
+      abi: require(`./abis/${version ||
+        definitions.version}/${name}.json`).abi,
+      address,
+      birthblock: birthblock || definitions.birthblock
+    })
   );
 });
 
@@ -43,7 +42,7 @@ class LumerinContracts {
    * The contract set contains instances of all the contracts at the proper
    * addresses depending on the target chain.
    *
-   * @param {Web3} web3 The Web3 instance to instantiate the contracts.
+   * @param {object} web3 The Web3 instance to instantiate the contracts.
    * @param {string} [chain='mainnet'] The target chain name or ID.
    */
   constructor (web3, chain = 'mainnet') {
