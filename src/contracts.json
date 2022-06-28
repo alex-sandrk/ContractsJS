@@ -18,13 +18,13 @@
     "birthblock": "11765694",
     "contracts": {
       "Lumerin": {
-        "address": "0xC6a30Bc2e1D7D9e9FFa5b45a21b6bDCBc109aE1B"
+        "address": "0x04fa90c64DAeEe83B22501c790D39B8B9f53878a"
       },
       "Implementation": {
         "address": null
       },
       "CloneFactory": {
-        "address": "0xe91be01493f4ae28297790277303926aaec604dc"
+        "address": "0x6681339C4A71Cc16769116e1C703ce318DFd5B9f"
       }
     },
     "version": "84c00a1"
