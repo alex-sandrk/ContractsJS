@@ -10,9 +10,6 @@
       },
       "CloneFactory": {
         "address": ""
-      },
-      "WebFacing": {
-        "address": ""
       }
     },
     "version": "4b1d0b9"
@@ -21,16 +18,13 @@
     "birthblock": "11765694",
     "contracts": {
       "Lumerin": {
-        "address": "0x84E00a18a36dFa31560aC216da1A9bef2164647D"
+        "address": "0x04fa90c64DAeEe83B22501c790D39B8B9f53878a"
       },
       "Implementation": {
         "address": null
       },
       "CloneFactory": {
-        "address": "0x081b84ddAC392a917Ec0B3f5c9e41198Af4018f8"
-      },
-      "WebFacing": {
-        "address": "0x9BC541E50b8f49B62341401D0Ffa2845c05b304d"
+        "address": "0x6681339C4A71Cc16769116e1C703ce318DFd5B9f"
       }
     },
     "version": "84c00a1"
@@ -44,9 +38,6 @@
     "contracts": {
       "Lumerin": {
         "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24"
-      },
-      "WebFacing": {
-        "address": "0x2612Af3A521c2df9EAF28422Ca335b04AdF3ac66"
       }
     },
     "version": "1337"
@@ -55,9 +46,6 @@
     "contracts": {
       "Lumerin": {
         "address": "0x5b1869D9A4C187F2EAa108f3062412ecf0526b24"
-      },
-      "WebFacing": {
-        "address": "0x2612Af3A521c2df9EAF28422Ca335b04AdF3ac66"
       }
     },
     "version": "1337"
