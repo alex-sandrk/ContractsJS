@@ -1,7 +1,6 @@
 'use strict';
 
 const mapValues = require('modify-values');
-const { Qtum } = require('qtumjs');
 
 const chainAliases = require('./aliases.json');
 const contractsDefinition = require('./contracts.json');
@@ -12,7 +11,8 @@ const allContracts = mapValues(chainAliases, function (chainAlias) {
   return mapValues(
     definitions.contracts,
     ({ address, birthblock, version }, name) => ({
-      abi: require(`./abis/${version || definitions.version}/${name}.json`),
+      abi: require(`./abis/${version ||
+        definitions.version}/${name}.json`).abi,
       address,
       birthblock: birthblock || definitions.birthblock
     })
@@ -28,18 +28,10 @@ const allContracts = mapValues(chainAliases, function (chainAlias) {
  * @returns {*} The contract instance.
  */
 
-const createContract = function (web3, abi, address, qtumrpc) {
-  let contract;
-  if (qtumrpc) {
-    const contractsRepo = { contracts: { '': { abi, address } } };
-    const qtum = new Qtum(qtumrpc, contractsRepo);
-    contract = qtum.contract('');
-  } else {
-    contract = typeof web3.eth.Contract === 'function'
-      ? new web3.eth.Contract(abi, address)
-      : web3.eth.contract(abi).at(address);
-  }
-  return contract;
+const createContract = function (web3, abi, address) {
+  return typeof web3.eth.Contract === 'function'
+    ? new web3.eth.Contract(abi, address)
+    : web3.eth.contract(abi).at(address);
 };
 
 /** Class representing a contracts set. */
@@ -50,24 +42,22 @@ class LumerinContracts {
    * The contract set contains instances of all the contracts at the proper
    * addresses depending on the target chain.
    *
-   * @param {Web3} web3 The Web3 instance to instantiate the contracts.
+   * @param {object} web3 The Web3 instance to instantiate the contracts.
    * @param {string} [chain='mainnet'] The target chain name or ID.
-   * @param {string} qtumrpc qtum rpc url
    */
-  constructor (web3, chain = 'mainnet', qtumrpc) {
+  constructor (web3, chain = 'mainnet') {
     if (!web3 || !web3.eth) {
-      throw new Error('Invalid web3 or qtumrpc provided');
+      throw new Error('Invalid web3 provided');
     }
 
-    // const contracts = allContracts[chainAliases[chain]];
-    const contracts = allContracts[chain];
+    const contracts = allContracts[chainAliases[chain]];
 
     if (!contracts) {
       throw new Error('Unknown chain');
     }
 
     Object.assign(this, mapValues(contracts, ({ abi, address }) =>
-      createContract(web3, abi, address, qtumrpc)
+      createContract(web3, abi, address)
     ));
   }
 }

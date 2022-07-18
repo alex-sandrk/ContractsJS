@@ -1,12 +1,8 @@
 {
-  "3": "ropsten",
-  "61": "classic",
-  "63": "mordor",
-  "classic": "classic",
   "main": "mainnet",
   "mainnet": "mainnet",
-  "1337": "lmrTestnet",
-  "mordor": "mordor",
+  "ethMainnet": "mainnet",
+  "3": "ropsten",
   "ropsten": "ropsten",
-  "qtumTestnet": "qtumTestnet"
+  "ethRopsten": "ropsten"
 }
